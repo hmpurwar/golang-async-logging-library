@@ -59,7 +59,7 @@ func TestWritesToWriterModule2(t *testing.T) {
 	wg := &sync.WaitGroup{}
 	wg.Add(1)
 	alog.write("test", wg)
-
+	wg.Wait()
 	written := b.String()
 	if written == "" {
 		t.Fatal("Nothing written to log")
